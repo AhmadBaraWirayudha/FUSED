@@ -1,0 +1,2 @@
+[console_scripts]
+metatune-benchmarks = metatune.benchmarks.cli:main

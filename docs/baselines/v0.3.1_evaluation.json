@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "dataset_version": "v1",
+  "config_path": "config.yaml",
+  "case_count": 4,
+  "answer_accuracy": 0.25,
+  "retrieval_hit_at_1": 0.75,
+  "retrieval_hit_at_k": 0.75,
+  "retrieval_mrr": 0.75,
+  "mean_latency_ms": 1129.9084830000083,
+  "median_latency_ms": 1162.7690639999742,
+  "p95_latency_ms": 1331.753031000062,
+  "max_latency_ms": 1331.753031000062,
+  "cases": [
+    {
+      "case_id": "m1_exact",
+      "input_text": "Compute the integral of 2x from 0 to 4.",
+      "answer_correct": true,
+      "retrieval_hit_at_1": true,
+      "retrieval_hit_at_k": true,
+      "reciprocal_rank": 1.0,
+      "latency_ms": 862.342773000023,
+      "output_preview": "Fallback backend active (retrieval-grounded, similarity 0.78). Task summary: Compute the integral of 2x from 0 to 4. Closest known solved example: - Integral of 2x from 0 to 4 is 16. Steps from that example: - Identify the integrand as 2x. ",
+      "retrieved_doc_ids": [
+        "bootstrap:bade0d7b50d604208fffed66",
+        "bootstrap:72e05bbb22d820de063a2dcb",
+        "bootstrap:dd8398539899b6fa91cd6caf"
+      ],
+      "retrieved_scores": [
+        0.7777777777777777,
+        0.10540925533894598,
+        0.10050378152592121
+      ]
+    },
+    {
+      "case_id": "m2_exact",
+      "input_text": "Solve x^2 - 5x + 6 = 0.",
+      "answer_correct": false,
+      "retrieval_hit_at_1": true,
+      "retrieval_hit_at_k": true,
+      "reciprocal_rank": 1.0,
+      "latency_ms": 1153.2022119999965,
+      "output_preview": "Fallback backend active (no confident retrieval match; plan-only). Task summary: Solve x^2 - 5x + 6 = 0. Essential plan: - factor_expression - append_values - finalize",
+      "retrieved_doc_ids": [
+        "bootstrap:72e05bbb22d820de063a2dcb",
+        "bootstrap:bade0d7b50d604208fffed66",
+        "bootstrap:aea83a0307637c4610c4b9c7"
+      ],
+      "retrieved_scores": [
+        0.3872983346207417,
+        0.13608276348795434,
+        0.0
+      ]
+    },
+    {
+      "case_id": "e1_exact",
+      "input_text": "Estimate the voltage drop across a 10 ohm resistor carrying 2 A.",
+      "answer_correct": false,
+      "retrieval_hit_at_1": true,
+      "retrieval_hit_at_k": true,
+      "reciprocal_rank": 1.0,
+      "latency_ms": 1331.753031000062,
+      "output_preview": "Fallback backend active (no confident retrieval match; plan-only). Task summary: Estimate the voltage drop across a 10 ohm resistor carrying 2 A. Essential plan: - finalize",
+      "retrieved_doc_ids": [
+        "bootstrap:aea83a0307637c4610c4b9c7",
+        "bootstrap:72e05bbb22d820de063a2dcb",
+        "bootstrap:bade0d7b50d604208fffed66"
+      ],
+      "retrieved_scores": [
+        0.2672612419124244,
+        0.16903085094570333,
+        0.0
+      ]
+    },
+    {
+      "case_id": "c1_exact",
+      "input_text": "Fix a Python loop that appends numbers 0 to 4.",
+      "answer_correct": false,
+      "retrieval_hit_at_1": false,
+      "retrieval_hit_at_k": false,
+      "reciprocal_rank": 0.0,
+      "latency_ms": 1172.3359159999518,
+      "output_preview": "Fallback backend active (no confident retrieval match; plan-only). Task summary: Fix a Python loop that appends numbers 0 to 4. Essential plan: - evaluate_bounds - finalize",
+      "retrieved_doc_ids": [
+        "bootstrap:bade0d7b50d604208fffed66",
+        "bootstrap:72e05bbb22d820de063a2dcb",
+        "bootstrap:aea83a0307637c4610c4b9c7"
+      ],
+      "retrieved_scores": [
+        0.31622776601683794,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

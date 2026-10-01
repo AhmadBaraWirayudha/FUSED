@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "dataset_version": "learning_v1",
+  "case_count": 2,
+  "baseline_accuracy": 0.0,
+  "post_learning_exact_accuracy": 1.0,
+  "post_learning_probe_accuracy": 1.0,
+  "exact_accuracy_delta": 1.0,
+  "probe_accuracy_delta_not_applicable": true,
+  "cases": [
+    {
+      "case_id": "learn_quadratic",
+      "baseline_correct": false,
+      "post_learning_exact_correct": true,
+      "post_learning_probe_correct": true,
+      "baseline_retrieved_doc_ids": [
+        "bootstrap:72e05bbb22d820de063a2dcb",
+        "bootstrap:bade0d7b50d604208fffed66",
+        "bootstrap:aea83a0307637c4610c4b9c7"
+      ],
+      "learned_retrieved_doc_ids": [
+        "fbaf6c76-3cbb-45f0-83a4-5876bb8688c6",
+        "bootstrap:72e05bbb22d820de063a2dcb",
+        "bootstrap:bade0d7b50d604208fffed66"
+      ],
+      "lesson_doc_id": "fbaf6c76-3cbb-45f0-83a4-5876bb8688c6",
+      "learning_latency_ms": 2167.7253919999657
+    },
+    {
+      "case_id": "learn_ohms_law",
+      "baseline_correct": false,
+      "post_learning_exact_correct": true,
+      "post_learning_probe_correct": true,
+      "baseline_retrieved_doc_ids": [
+        "bootstrap:aea83a0307637c4610c4b9c7",
+        "bootstrap:72e05bbb22d820de063a2dcb",
+        "bootstrap:bade0d7b50d604208fffed66"
+      ],
+      "learned_retrieved_doc_ids": [
+        "26527c5e-9e1b-4451-b77e-7f369724de64",
+        "bootstrap:aea83a0307637c4610c4b9c7",
+        "bootstrap:72e05bbb22d820de063a2dcb"
+      ],
+      "lesson_doc_id": "26527c5e-9e1b-4451-b77e-7f369724de64",
+      "learning_latency_ms": 2788.6298359999273
+    }
+  ]
+}

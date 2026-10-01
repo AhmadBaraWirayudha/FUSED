@@ -1,0 +1,137 @@
+Metadata-Version: 2.4
+Name: hybrid-fused-brain
+Version: 0.3.1
+Summary: Merged pure-Python closed-loop engine and fractal brain architectures
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: fast
+Requires-Dist: numpy>=1.24; extra == "fast"
+Requires-Dist: scipy>=1.10; extra == "fast"
+Provides-Extra: semantic
+Requires-Dist: sentence-transformers>=3.0; extra == "semantic"
+Provides-Extra: faiss
+Requires-Dist: faiss-cpu>=1.8.0; extra == "faiss"
+Provides-Extra: benchmarks
+Requires-Dist: PyYAML>=6.0; extra == "benchmarks"
+Requires-Dist: pandas>=2.0; extra == "benchmarks"
+Requires-Dist: scikit-learn>=1.3; extra == "benchmarks"
+Requires-Dist: matplotlib>=3.7; extra == "benchmarks"
+Requires-Dist: seaborn>=0.12; extra == "benchmarks"
+Requires-Dist: psutil>=5.9; extra == "benchmarks"
+Requires-Dist: optuna>=3.5; extra == "benchmarks"
+Requires-Dist: ray[default]>=2.9; extra == "benchmarks"
+Requires-Dist: lightgbm>=4.0; extra == "benchmarks"
+Requires-Dist: xgboost>=2.0; extra == "benchmarks"
+Requires-Dist: imbalanced-learn>=0.12; extra == "benchmarks"
+Requires-Dist: py-spy>=0.3; extra == "benchmarks"
+Requires-Dist: memory-profiler>=0.61; extra == "benchmarks"
+Dynamic: license-file
+
+# Hybrid Cognitive AI Pipeline
+
+This workspace now runs as one end-to-end AI system rather than two separate demos.
+
+## Pipeline stages
+
+1. **Normalize** the input text.
+2. **Retrieve** relevant memory records from the closed-loop engine.
+3. **Decompose** the task into subgoals.
+4. **Plan** the action sequence.
+5. **Generate** the final answer with the closed-loop decoder.
+6. **Score and adapt** with FractalBrain.
+7. **Reflect** on confidence, retrieved memory, and correction signals.
+8. **Learn from feedback** when the result is corrected.
+
+Alongside these, a `LivingKnowledgeGraph` (`lkg.py`) tracks each turn's task
+intent and retrieved documents' reliability across a session, feeding both
+the reflection step above and generation itself (a caution when a surfaced
+document has a poor track record). See `docs/UNIFIED_PIPELINE.md` for how it
+fits in.
+
+A separate, opt-in `adaptive_optimizer.py` can search `config.yaml`'s own
+tunable values (retrieval threshold, planner sizing, knowledge-graph
+particle count, ...) for a better-scoring configuration, run via
+`python hybrid_cli.py --mode tune`. See `docs/ADAPTIVE_OPTIMIZER.md`.
+
+That optimizer's search logic is also available as `metatune/`, a vendored,
+self-contained package with a friendlier Optuna-shaped API
+(`from metatune import Study, Float, Int, Categorical`) and a numpy/scipy-
+accelerated Gaussian Process strategy for long runs. `pipeline_optimizer.py`
+uses it automatically when numpy/scipy are installed (`pip install .[fast]`)
+and falls back to the embedded pure-Python implementation otherwise — either
+way, `pip install .` alone still needs nothing beyond the standard library.
+See `docs/BENCHMARKS.md` for the full comparison against Optuna and its
+limitations, and `docs/DEVELOPMENT_LOG.md` for how that split came about,
+in the order it actually happened — including the claims that turned out
+to be premature and had to be corrected. `docs/session_audit_trail/` and
+`CHANGELOG.md` have the same material in the original, more granular form.
+
+## Run the unified pipeline
+
+```bash
+python hybrid_cli.py --mode pipeline
+```
+
+## Run the legacy subsystem demos
+
+```bash
+python hybrid_cli.py --mode closed-loop
+python hybrid_cli.py --mode fractal
+python -m fractal_brain --demo
+```
+
+## Compatibility
+
+- `hybrid_engine.py` now points to the unified pipeline.
+- Root-level closed-loop modules are preserved for `from engine import ...`.
+- `ocle_clean_build/` still re-exports the root closed-loop modules for package-style imports.
+- Relative paths in `config.yaml` resolve from the file location, so the bundled bootstrap dataset works from any working directory.
+
+## Session mode
+
+Run a multi-turn session by separating prompts with `||`:
+
+```bash
+python hybrid_cli.py --mode session --text "First question || Second question || Third question"
+```
+
+## Quick demo / one-click launcher
+
+- **Windows:** double-click `run_demo.bat` for a menu (showcase demo, full
+  test suite, ask your own question, or open the interview prep notes).
+- **Any OS:** `python demo_showcase.py` runs the same showcase directly --
+  four short, live scenes (retrieval-grounded answers, honest fallback on
+  out-of-domain questions, a multi-turn session, and teaching it a new fact
+  on the spot), using its own throwaway database so it's reproducible and
+  never touches `data/engine.db`. Add `--run-tests` to also run the full
+  test suite afterwards, or `--pause` to step through it manually.
+- `python run_tests.py` runs the full test suite directly (156-check smoke
+  script + pytest), installing pytest automatically first if it isn't
+  already present.
+- `docs/INTERVIEW_PREP.md` -- talking points, likely questions, and honest
+  limitations if you're presenting or discussing this project.
+
+## Docs
+
+- [`docs/UNIFIED_PIPELINE.md`](docs/UNIFIED_PIPELINE.md) -- component map, CLI
+  usage, config reference, and known limitations for the layer described
+  above (`ai_pipeline.py` / `hybrid_cli.py` / `ocle_clean_build/`).
+- [`docs/ADAPTIVE_OPTIMIZER.md`](docs/ADAPTIVE_OPTIMIZER.md) -- the
+  hyperparameter search engine (`adaptive_optimizer.py` /
+  `pipeline_optimizer.py`): design, what it actually tunes, and honest
+  scope limits.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md), [`docs/API_REFERENCE.md`](docs/API_REFERENCE.md),
+  [`docs/TRAINING_GUIDE.md`](docs/TRAINING_GUIDE.md) -- the `fractal_brain/` package itself.
+
+
+## Gemini backend (TB04)
+
+FUSED can now use a real Gemini language model through the `LanguageModelBackend` interface. The default remains the offline fallback backend.
+
+Set `model.backend: gemini` and provide `GEMINI_API_KEY` before running the CLI. The current adapter targets Gemini's Interactions REST API and defaults to `gemini-3.8-flash`.
+
+
+### Fractal routing (TB07)
+
+The unified pipeline uses a pre-generation FractalBrain confidence estimate to select `direct_grounded`, `standard`, or `cautious_reasoning` generation policies. See `docs/FRACTAL_ROUTING.md`.

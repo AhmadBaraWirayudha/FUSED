@@ -1,0 +1,28 @@
+{
+  "schema_version": "3.0",
+  "generator_version": "tb10-max-token-v1",
+  "output": "data/tb10/synthetic_supervised_max_100m.jsonl.gz",
+  "records": 179619,
+  "requested_token_budget": 100000000,
+  "estimated_total_tokens": 99999890,
+  "target_tokens_per_record": 512,
+  "seed": 20261001,
+  "train_ratio": 0.8,
+  "train_records": 143696,
+  "eval_records": 35923,
+  "families": {
+    "m1": 44905,
+    "m2": 44905,
+    "e1": 44905,
+    "c1": 44904
+  },
+  "source_seed_ids": [
+    "m1",
+    "m2",
+    "e1",
+    "c1"
+  ],
+  "generation_mode": "max_token_stream",
+  "synthetic_only": true,
+  "human_review": "not_performed"
+}
