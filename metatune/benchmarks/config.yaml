@@ -1,0 +1,17 @@
+version: 3
+paths:
+  results: benchmarks/results
+  figures: benchmarks/figures
+  report: benchmarks/BENCHMARK_REPORT.md
+defaults:
+  digits_svm: 40
+  breast_cancer_lightgbm: 40
+  diabetes_xgboost: 40
+  mnist_like_mlp: 30
+  imbalanced_pipeline: 40
+runtime:
+  default_workers: 4
+  python: "3.11"
+  ray_local_mode: false
+  report_bootstrap_samples: 2000
+  run_all_backends: true
