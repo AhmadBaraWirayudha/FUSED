@@ -1,0 +1,24 @@
+{
+  "run_id": "digits_svm_optuna_serial_b7b178ab2f824c55afc3a69953272747",
+  "csv_path": "/home/claude/diag/trial_budget_results/digits_svm_60/runs/digits_svm_optuna_serial_b7b178ab2f824c55afc3a69953272747.csv",
+  "summary_path": "/home/claude/diag/trial_budget_results/digits_svm_60/runs/digits_svm_optuna_serial_b7b178ab2f824c55afc3a69953272747.json",
+  "problem": "digits_svm",
+  "optimizer": "optuna",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 60,
+  "best_value": 0.9888888888888889,
+  "best_config": {
+    "C": 9.795617052156858,
+    "gamma": "auto",
+    "kernel": "poly",
+    "degree": 5,
+    "coef0": 0.3799439986445243
+  },
+  "best_trial_id": 10,
+  "mean_total_time_sec": 0.057130511099999975,
+  "mean_objective_time_sec": 0.05473860333333249,
+  "mean_overhead_time_sec": 0.002391907766667482,
+  "mean_overhead_pct": 5.209064907972476,
+  "mean_objective_share_pct": 94.79093509202752
+}

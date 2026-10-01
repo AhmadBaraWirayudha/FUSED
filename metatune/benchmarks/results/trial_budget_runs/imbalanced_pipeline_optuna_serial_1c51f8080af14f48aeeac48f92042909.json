@@ -1,0 +1,21 @@
+{
+  "run_id": "imbalanced_pipeline_optuna_serial_1c51f8080af14f48aeeac48f92042909",
+  "csv_path": "/home/claude/diag/trial_budget_results/imbalanced_pipeline_30/runs/imbalanced_pipeline_optuna_serial_1c51f8080af14f48aeeac48f92042909.csv",
+  "summary_path": "/home/claude/diag/trial_budget_results/imbalanced_pipeline_30/runs/imbalanced_pipeline_optuna_serial_1c51f8080af14f48aeeac48f92042909.json",
+  "problem": "imbalanced_pipeline",
+  "optimizer": "optuna",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 30,
+  "best_value": 0.4148936170212766,
+  "best_config": {
+    "C": 0.13662113514959137,
+    "sampling_strategy": 0.2900986625202876
+  },
+  "best_trial_id": 11,
+  "mean_total_time_sec": 0.011667182499997845,
+  "mean_objective_time_sec": 0.01050129270000184,
+  "mean_overhead_time_sec": 0.0011658897999960042,
+  "mean_overhead_pct": 9.794111237090945,
+  "mean_objective_share_pct": 90.20588876290904
+}

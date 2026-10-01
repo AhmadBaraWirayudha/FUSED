@@ -1,0 +1,27 @@
+{
+  "run_id": "diabetes_xgboost_optuna_serial_9c41f7a462ca4bb4aa656d1156895809",
+  "csv_path": "/home/claude/diag/trial_budget_results/diabetes_xgboost_60_seed44/runs/diabetes_xgboost_optuna_serial_9c41f7a462ca4bb4aa656d1156895809.csv",
+  "summary_path": "/home/claude/diag/trial_budget_results/diabetes_xgboost_60_seed44/runs/diabetes_xgboost_optuna_serial_9c41f7a462ca4bb4aa656d1156895809.json",
+  "problem": "diabetes_xgboost",
+  "optimizer": "optuna",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 60,
+  "best_value": 52.233292970396285,
+  "best_config": {
+    "n_estimators": 301,
+    "learning_rate": 0.015603015814043454,
+    "max_depth": 2,
+    "subsample": 0.7196398961954413,
+    "colsample_bytree": 0.8300809587877205,
+    "min_child_weight": 0.9567242265339798,
+    "reg_alpha": 1.7127204689555025,
+    "reg_lambda": 6.6713580273991795
+  },
+  "best_trial_id": 41,
+  "mean_total_time_sec": 0.06939944861666589,
+  "mean_objective_time_sec": 0.06534516161666583,
+  "mean_overhead_time_sec": 0.0040542870000000635,
+  "mean_overhead_pct": 9.092335560568744,
+  "mean_objective_share_pct": 90.90766443943124
+}

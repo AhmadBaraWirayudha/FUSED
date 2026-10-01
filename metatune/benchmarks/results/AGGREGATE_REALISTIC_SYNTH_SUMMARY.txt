@@ -1,0 +1,15 @@
+problem                     seed        ours    optuna    winner  margin_%
+synthetic_xgboost_gaussian  42        58.093    57.919    optuna     +0.3%
+synthetic_xgboost_gaussian  43        52.556    52.712      ours     -0.3%
+synthetic_xgboost_gaussian  44        57.544    57.205    optuna     +0.6%
+synthetic_xgboost_gmm       42        53.322    52.992    optuna     +0.6%
+synthetic_xgboost_gmm       43        50.917    50.696    optuna     +0.4%
+synthetic_xgboost_gmm       44        49.397    49.285    optuna     +0.2%
+synthetic_xgboost_kde       42        75.298    74.674    optuna     +0.8%
+synthetic_xgboost_kde       43        74.289    74.190    optuna     +0.1%
+synthetic_xgboost_kde       44        80.068    79.833    optuna     +0.3%
+synthetic_xgboost_bootstrap 42        37.404    36.800    optuna     +1.6%
+synthetic_xgboost_bootstrap 43        40.360    40.390      ours     -0.1%
+synthetic_xgboost_bootstrap 44        35.914    36.460      ours     -1.5%
+
+tally across 12 (problem,seed) pairs: {'optuna': 9, 'ours': 3}

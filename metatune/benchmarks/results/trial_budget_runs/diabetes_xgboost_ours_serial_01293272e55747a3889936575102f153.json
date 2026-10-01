@@ -1,0 +1,27 @@
+{
+  "run_id": "diabetes_xgboost_ours_serial_01293272e55747a3889936575102f153",
+  "csv_path": "/home/claude/diag/trial_budget_results/diabetes_xgboost_60_seed44/runs/diabetes_xgboost_ours_serial_01293272e55747a3889936575102f153.csv",
+  "summary_path": "/home/claude/diag/trial_budget_results/diabetes_xgboost_60_seed44/runs/diabetes_xgboost_ours_serial_01293272e55747a3889936575102f153.json",
+  "problem": "diabetes_xgboost",
+  "optimizer": "ours",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 60,
+  "best_value": 52.5055986598096,
+  "best_config": {
+    "colsample_bytree": 0.9038180602476107,
+    "learning_rate": 0.019022253706468793,
+    "max_depth": 2,
+    "min_child_weight": 3.5316944268708492,
+    "n_estimators": 388,
+    "reg_alpha": 1.4258929452846136,
+    "reg_lambda": 1.2535400807984487,
+    "subsample": 0.887915519068299
+  },
+  "best_trial_id": 46,
+  "mean_total_time_sec": 0.0760679827500013,
+  "mean_objective_time_sec": 0.07568833025000003,
+  "mean_overhead_time_sec": 0.0003796525000012707,
+  "mean_overhead_pct": 0.6775488708511193,
+  "mean_objective_share_pct": 99.32245112914887
+}

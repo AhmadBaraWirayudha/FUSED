@@ -1,0 +1,24 @@
+{
+  "run_id": "digits_svm_ours_serial_0ad33691e1474593ad8f01454bb87102",
+  "csv_path": "/home/claude/diag/trial_budget_results/digits_svm_30/runs/digits_svm_ours_serial_0ad33691e1474593ad8f01454bb87102.csv",
+  "summary_path": "/home/claude/diag/trial_budget_results/digits_svm_30/runs/digits_svm_ours_serial_0ad33691e1474593ad8f01454bb87102.json",
+  "problem": "digits_svm",
+  "optimizer": "ours",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 30,
+  "best_value": 0.9888888888888889,
+  "best_config": {
+    "C": 2.921221384198505,
+    "coef0": 0.8225698702325297,
+    "degree": 4,
+    "gamma": "scale",
+    "kernel": "poly"
+  },
+  "best_trial_id": 1,
+  "mean_total_time_sec": 0.058691781933333215,
+  "mean_objective_time_sec": 0.05834178330000033,
+  "mean_overhead_time_sec": 0.00034999863333287824,
+  "mean_overhead_pct": 0.7006416211113414,
+  "mean_objective_share_pct": 99.2993583788887
+}

@@ -1,0 +1,25 @@
+problem                 seed          ours      optuna    winner
+digits_svm              42          0.9889      0.9889       tie
+digits_svm              43          0.9911      0.9911       tie
+digits_svm              44          0.9911      0.9911       tie
+breast_cancer_lightgbm  42          0.9720      0.9790    optuna
+breast_cancer_lightgbm  43          0.9580      0.9580       tie
+breast_cancer_lightgbm  44          0.9790      0.9790       tie
+diabetes_xgboost        42         52.7394     51.7021    optuna
+diabetes_xgboost        43         54.5359     54.1228    optuna
+diabetes_xgboost        44         53.3104     52.5358    optuna
+mnist_like_mlp          42          0.9970      0.9970       tie
+mnist_like_mlp          43          0.9980      0.9980       tie
+mnist_like_mlp          44          0.9980      0.9990    optuna
+imbalanced_pipeline     42          0.4044      0.4149    optuna
+imbalanced_pipeline     43          0.4880      0.5000    optuna
+imbalanced_pipeline     44          0.5714      0.5810    optuna
+
+tally across 15 (problem,seed) pairs: {'tie': 7, 'optuna': 8}
+
+problem                   ours avg wall(s)  optuna avg wall(s)
+digits_svm                            1.51                1.71
+breast_cancer_lightgbm                0.99                1.00
+diabetes_xgboost                      3.27                1.77
+mnist_like_mlp                       61.74               64.00
+imbalanced_pipeline                   0.35                0.35

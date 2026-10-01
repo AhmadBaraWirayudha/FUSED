@@ -1,0 +1,37 @@
+Trial-budget experiment: does crossing the 50-trial Thompson-sampling threshold
+(see CHANGELOG.md, "Testing the trial-budget hypothesis") change the picture?
+seed 42 unless noted. Raw JSONs in this folder.
+
+digits_svm (accuracy, maximize) -- already saturated, uninformative:
+  30 trials:  ours=0.9889  optuna=0.9889
+  60 trials:  ours=0.9889  optuna=0.9889
+  100 trials: ours=0.9889  optuna=0.9889
+
+synthetic_xgboost_gmm (rmse, minimize) -- gap narrows steadily:
+  30 trials:  ours=53.2476  optuna=52.9923  (optuna +0.48%)
+  60 trials:  ours=53.2387  optuna=52.9923  (optuna +0.47%, optuna flat)
+  100 trials: ours=53.0056  optuna=52.9923  (optuna +0.03%, nearly closed)
+
+diabetes_xgboost (rmse, minimize) -- seed 42 only, ours wins:
+  30 trials:  ours=52.4405  optuna=51.7021  (optuna +1.4%)
+  60 trials:  ours=51.4243  optuna=51.7021  (ours +0.5%)
+  100 trials: ours=51.6180  optuna=51.6321  (ours +0.03%)
+
+  Checked at 60 trials on seeds 43 and 44 before trusting the seed-42 win:
+  seed 43: ours=55.2139  optuna=53.5846  (optuna wins; ours also got WORSE
+           than its own 30-trial result of 54.5359 -- a real regression, not
+           just "didn't improve enough")
+  seed 44: ours=52.5056  optuna=52.2333  (optuna wins narrowly)
+  -> 1 ours win / 2 optuna wins across 3 seeds at 60 trials. The seed-42 win
+     does not generalize as a reliable pattern.
+
+imbalanced_pipeline (f1, maximize) -- catches up to an exact tie:
+  30 trials:  ours=0.4100  optuna=0.4149  (optuna +1.2%)
+  60 trials:  ours=0.4149  optuna=0.4211  (optuna +1.5%, both improved)
+  100 trials: ours=0.4211  optuna=0.4211  (tie)
+
+Conclusion: real, structural reason (confirmed in code) why the 30-trial
+protocol underrates `ours` -- it never reaches the optimizer's strongest
+strategies. Real but seed-dependent evidence that more trials helps. Not
+strong enough to overturn "Optuna wins most comparisons in this session";
+strong enough to caveat all of them.

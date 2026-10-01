@@ -1,0 +1,27 @@
+{
+  "run_id": "synthetic_xgboost_gmm_ours_serial_4d6da0732ee643f0a108307b2e0bf78d",
+  "csv_path": "/home/claude/diag/trial_budget_results/synthetic_xgboost_gmm_60/runs/synthetic_xgboost_gmm_ours_serial_4d6da0732ee643f0a108307b2e0bf78d.csv",
+  "summary_path": "/home/claude/diag/trial_budget_results/synthetic_xgboost_gmm_60/runs/synthetic_xgboost_gmm_ours_serial_4d6da0732ee643f0a108307b2e0bf78d.json",
+  "problem": "synthetic_xgboost_gmm",
+  "optimizer": "ours",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 60,
+  "best_value": 53.23866745975734,
+  "best_config": {
+    "colsample_bytree": 0.8335686579687455,
+    "learning_rate": 0.02232123939528447,
+    "max_depth": 3,
+    "min_child_weight": 6.549165863205045,
+    "n_estimators": 461,
+    "reg_alpha": 1.5932734554039847,
+    "reg_lambda": 3.163987716852352,
+    "subsample": 0.8994258206252402
+  },
+  "best_trial_id": 39,
+  "mean_total_time_sec": 0.2513913041000002,
+  "mean_objective_time_sec": 0.2509371418500007,
+  "mean_overhead_time_sec": 0.00045416224999949385,
+  "mean_overhead_pct": 0.40182166225201993,
+  "mean_objective_share_pct": 99.598178337748
+}
