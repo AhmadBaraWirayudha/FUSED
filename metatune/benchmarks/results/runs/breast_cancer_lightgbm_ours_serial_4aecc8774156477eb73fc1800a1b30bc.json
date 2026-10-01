@@ -1,0 +1,27 @@
+{
+  "run_id": "breast_cancer_lightgbm_ours_serial_4aecc8774156477eb73fc1800a1b30bc",
+  "csv_path": "/home/claude/diag/suite_results_seed44/runs/breast_cancer_lightgbm_ours_serial_4aecc8774156477eb73fc1800a1b30bc.csv",
+  "summary_path": "/home/claude/diag/suite_results_seed44/runs/breast_cancer_lightgbm_ours_serial_4aecc8774156477eb73fc1800a1b30bc.json",
+  "problem": "breast_cancer_lightgbm",
+  "optimizer": "ours",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 30,
+  "best_value": 0.9790209790209791,
+  "best_config": {
+    "colsample_bytree": 0.7771163462649506,
+    "learning_rate": 0.1983144621677001,
+    "max_depth": 3,
+    "n_estimators": 231,
+    "num_leaves": 35,
+    "reg_alpha": 0.19137016342076263,
+    "reg_lambda": 2.585912977421035,
+    "subsample": 0.8478639765982043
+  },
+  "best_trial_id": 0,
+  "mean_total_time_sec": 0.03154123950000856,
+  "mean_objective_time_sec": 0.03119880173333248,
+  "mean_overhead_time_sec": 0.0003424377666760847,
+  "mean_overhead_pct": 1.1893033106916733,
+  "mean_objective_share_pct": 98.81069668930834
+}

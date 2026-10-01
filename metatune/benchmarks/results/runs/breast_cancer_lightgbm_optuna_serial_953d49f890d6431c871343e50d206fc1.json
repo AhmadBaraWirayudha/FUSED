@@ -1,0 +1,27 @@
+{
+  "run_id": "breast_cancer_lightgbm_optuna_serial_953d49f890d6431c871343e50d206fc1",
+  "csv_path": "/home/claude/diag/suite_results_seed42/runs/breast_cancer_lightgbm_optuna_serial_953d49f890d6431c871343e50d206fc1.csv",
+  "summary_path": "/home/claude/diag/suite_results_seed42/runs/breast_cancer_lightgbm_optuna_serial_953d49f890d6431c871343e50d206fc1.json",
+  "problem": "breast_cancer_lightgbm",
+  "optimizer": "optuna",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 30,
+  "best_value": 0.9790209790209791,
+  "best_config": {
+    "n_estimators": 75,
+    "learning_rate": 0.10074286775934051,
+    "num_leaves": 62,
+    "max_depth": 6,
+    "subsample": 0.9753576470209869,
+    "colsample_bytree": 0.8412704543645719,
+    "reg_alpha": 0.6698471172187905,
+    "reg_lambda": 2.2829766608606223
+  },
+  "best_trial_id": 27,
+  "mean_total_time_sec": 0.02975317989999932,
+  "mean_objective_time_sec": 0.0265735525666661,
+  "mean_overhead_time_sec": 0.00317962733333322,
+  "mean_overhead_pct": 11.37801536081186,
+  "mean_objective_share_pct": 88.62198463918813
+}
