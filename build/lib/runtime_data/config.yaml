@@ -1,0 +1,79 @@
+project:
+  name: open-closed-loop-engine
+  seed: 42
+paths:
+  sqlite_db: data/engine.db
+  bootstrap_dataset: data/bootstrap_dataset.jsonl
+  # fractal_brain.storage.Storage db for PipelineFractalMemoryAdapter's
+  # elite/failed configuration persistence (pipeline_optimizer.py). Kept
+  # separate from sqlite_db: Storage's own `documents` table schema
+  # collides column-for-column with memory.VectorMemoryStore's (see
+  # CHANGELOG.md), so sharing one db file would corrupt whichever
+  # connects second.
+  optimizer_db: data/optimizer.db
+retrieval:
+  backend: auto
+  top_k: 3
+  # Zero-dependency baseline. Use config.semantic.yaml for the real semantic embedder.
+  embedding_model: simple-hash-embedding
+  embedding_device: auto
+  embedding_cache_size: 2048
+  normalize_embeddings: true
+  max_documents: 10000
+planner:
+  n_states: 12
+  max_plan_steps: 6
+  terminal_actions: [finalize, verify, return_answer]
+model:
+  backend: fallback
+  model_name: fallback
+  fallback_model_name: fallback
+  use_trust_remote_code: false
+  max_new_tokens: 256
+  temperature: 0.2
+  top_p: 0.95
+  repetition_penalty: 1.05
+  gemini:
+    api_key_env: GEMINI_API_KEY
+    endpoint: https://generativelanguage.googleapis.com/v1beta/interactions
+    thinking_level: medium
+    timeout_s: 60
+  # Minimum cosine-similarity score (0-1) a retrieved memory document needs
+  # before the fallback generator will surface it directly as the proposed
+  # answer, rather than falling back to a generic plan-only response.
+  retrieval_confidence_threshold: 0.5
+quantization:
+  mode: none
+  bits: 4
+  use_4bit: true
+  compute_dtype: bfloat16
+  double_quant: true
+  quant_type: nf4
+decomposition:
+  max_subtasks: 5
+knowledge_graph:
+  # Particle-filter width for LivingKnowledgeGraph (lkg.py). More particles
+  # trade runtime for a smoother posterior over fact confidence / entity
+  # transitions; 20 matches the module's own default.
+  num_particles: 20
+  # Exponential decay per predict() step, applied to fact confidence and
+  # source reliability alike. Matches the module's own default.
+  forgetting_factor: 0.95
+  seed: 42
+  # Below this mean confidence, a retrieved document is treated as
+  # historically unreliable for its matched intent -- used both by
+  # SharedMoEBackbone's generation-time caveat and ai_pipeline.py's
+  # reflection risk note, so the two stay in sync.
+  low_confidence_threshold: 0.4
+fractal_routing:
+  # FractalBrain confidence becomes a real downstream generation policy.
+  # High confidence favors concise grounded output; low confidence reserves
+  # more generation budget and stronger provider-side reasoning when available.
+  high_confidence_threshold: 0.75
+  low_confidence_threshold: 0.45
+  direct_max_new_tokens: 128
+  standard_max_new_tokens: 256
+  cautious_max_new_tokens: 384
+runtime:
+  device: auto
+  log_level: INFO
