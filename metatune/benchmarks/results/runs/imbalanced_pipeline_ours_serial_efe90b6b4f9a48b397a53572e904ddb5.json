@@ -1,0 +1,21 @@
+{
+  "run_id": "imbalanced_pipeline_ours_serial_efe90b6b4f9a48b397a53572e904ddb5",
+  "csv_path": "/home/claude/diag/suite_results_seed43/runs/imbalanced_pipeline_ours_serial_efe90b6b4f9a48b397a53572e904ddb5.csv",
+  "summary_path": "/home/claude/diag/suite_results_seed43/runs/imbalanced_pipeline_ours_serial_efe90b6b4f9a48b397a53572e904ddb5.json",
+  "problem": "imbalanced_pipeline",
+  "optimizer": "ours",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 30,
+  "best_value": 0.4880382775119617,
+  "best_config": {
+    "C": 0.09628664461118171,
+    "sampling_strategy": 0.3489583522836935
+  },
+  "best_trial_id": 26,
+  "mean_total_time_sec": 0.011203731633329047,
+  "mean_objective_time_sec": 0.011034459266668743,
+  "mean_overhead_time_sec": 0.0001692723666603039,
+  "mean_overhead_pct": 1.5142899238062046,
+  "mean_objective_share_pct": 98.48571007619378
+}

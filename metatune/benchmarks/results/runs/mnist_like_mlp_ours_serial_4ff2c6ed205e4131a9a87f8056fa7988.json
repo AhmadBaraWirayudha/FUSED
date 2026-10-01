@@ -1,0 +1,26 @@
+{
+  "run_id": "mnist_like_mlp_ours_serial_4ff2c6ed205e4131a9a87f8056fa7988",
+  "csv_path": "/home/claude/diag/suite_results_seed42/runs/mnist_like_mlp_ours_serial_4ff2c6ed205e4131a9a87f8056fa7988.csv",
+  "summary_path": "/home/claude/diag/suite_results_seed42/runs/mnist_like_mlp_ours_serial_4ff2c6ed205e4131a9a87f8056fa7988.json",
+  "problem": "mnist_like_mlp",
+  "optimizer": "ours",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 30,
+  "best_value": 0.997,
+  "best_config": {
+    "activation": "relu",
+    "alpha": 0.003803657602596491,
+    "batch_size": 128,
+    "hidden_units": 203,
+    "learning_rate_init": 0.004341667184684238,
+    "max_iter": 75,
+    "n_layers": 3
+  },
+  "best_trial_id": 1,
+  "mean_total_time_sec": 2.201160040300001,
+  "mean_objective_time_sec": 2.2006781886000004,
+  "mean_overhead_time_sec": 0.0004818517000003908,
+  "mean_overhead_pct": 0.05243013658564822,
+  "mean_objective_share_pct": 99.94756986341433
+}

@@ -1,0 +1,26 @@
+{
+  "run_id": "mnist_like_mlp_optuna_serial_9c09d441add74b95bfb383bae8d97ba4",
+  "csv_path": "/home/claude/diag/suite_results_seed43/runs/mnist_like_mlp_optuna_serial_9c09d441add74b95bfb383bae8d97ba4.csv",
+  "summary_path": "/home/claude/diag/suite_results_seed43/runs/mnist_like_mlp_optuna_serial_9c09d441add74b95bfb383bae8d97ba4.json",
+  "problem": "mnist_like_mlp",
+  "optimizer": "optuna",
+  "backend": "serial",
+  "workers": 1,
+  "trials": 30,
+  "best_value": 0.998,
+  "best_config": {
+    "hidden_units": 130,
+    "n_layers": 3,
+    "activation": "relu",
+    "alpha": 0.007978262868411941,
+    "learning_rate_init": 0.002036051691514058,
+    "batch_size": 64,
+    "max_iter": 78
+  },
+  "best_trial_id": 16,
+  "mean_total_time_sec": 3.1022920144999944,
+  "mean_objective_time_sec": 3.0985547595333287,
+  "mean_overhead_time_sec": 0.0037372549666656596,
+  "mean_overhead_pct": 0.27152101157851677,
+  "mean_objective_share_pct": 99.72847898842149
+}
